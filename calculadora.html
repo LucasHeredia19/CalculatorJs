@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lucas Calculator</h1>
+      <div>
+        <h3>Qual o primeiro valor ?</h3>
+        <input
+          type="number"
+          id="valor1"
+          placeholder="Valor 1"
+          class="form-input"
+        />
+      </div>
+      <div>
+        <h3>Qual o segundo valor ?</h3>
+        <input
+          type="number"
+          id="valor2"
+          placeholder="Valor 2"
+          class="form-input"
+        />
+      </div>
+      <div>
+        <h3>Qual a operação ? x / + -</h3>
+        <input type="text" id="operador" class="form-input" />
+      </div>
+
+      <button
+        type="button"
+        onclick="operacao()"
+        id="btn"
+        class="button-calculate"
+      >
+        Realizar
+      </button>
+      <div class="resultOperator"></div>
+    </div>
+    <script>
+      function operacao() {
+        ''
+        const valor1 = document.querySelector('#valor1').value
+        const valor2 = document.querySelector('#valor2').value
+        const operador = document.querySelector('#operador').value
+        const resultOp = document.querySelector('.resultOperator')
+
+        let result = 0
+
+        if (!valor1) {
+          window.alert('Escreva o primeiro valor')
+        } else if (!valor2) {
+          window.alert('Escreva o segundo valor')
+        } else if (!operador) {
+          window.alert('Escreva o operador')
+        } else {
+          switch (operador) {
+            case 'x':
+              result = valor1 * valor2
+              break
+            case '+':
+              result = valor1 + valor2
+              break
+            case '/':
+              result = valor1 / valor2
+              break
+            case '-':
+              result = valor1 - valor2
+              break
+            default:
+              window.alert('Use um desses Operadores: X - + /')
+          }
+          resultOp.innerHTML = `<h1>Resultado = ${result}</h1>`
+        }
+      }
+    </script>
+  </body>
+</html>
